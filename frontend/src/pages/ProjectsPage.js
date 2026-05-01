@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { projectsAPI } from '../services/api';
-import { useAuth } from '../context/AuthContext';
 import { format } from 'date-fns';
 
 const statusColors = {
@@ -96,7 +95,7 @@ export default function ProjectsPage() {
   const [showCreate, setShowCreate] = useState(false);
   const [search, setSearch] = useState('');
   const navigate = useNavigate();
-  const { isAdmin } = useAuth();
+
 
   useEffect(() => {
     projectsAPI.getAll()
